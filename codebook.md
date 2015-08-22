@@ -10,20 +10,20 @@ The ID of the user performing the activities; has a value of 1:30
 
 Activity performed by the subject. May be one of the following values.
 
-‘’’
+```
 LAYING
 SITTING
 STANDING
 WALKING
 WALKING_DOWNSTAIRS
 WALKING_UPSTAIRS
-‘’’
+```
 
 ## Feature variables
 
 The feature variables are the mean (denoted by “mean”) and standard deviation (denoted by “std”) averaged over each subject and activity, normalized over [-1,1]. The prefix “t” denotes time domain and “f” denotes frequency domain. The suffixes “X”, “Y”, “Z” denote movement in the X, Y, or Z axis respectively. Acceleration “acc” is measured in standard gravity units g, while angular velocity “gyro” is measured in radians/sec. Frequencies “meanFreq” are measured in Hz.
 
-‘’’
+```
 tBodyAcc.mean.X
 tBodyAcc.mean.Y
 tBodyAcc.mean.Z
@@ -103,4 +103,4 @@ fBodyBodyGyroMag.meanFreq
 fBodyBodyGyroJerkMag.mean
 fBodyBodyGyroJerkMag.std
 fBodyBodyGyroJerkMag.meanFreq
-‘’’
+```
