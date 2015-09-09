@@ -22,11 +22,11 @@ runAnalysis <- function()
 # Reads in either test or train data, assumed to be in working directory
 readData <- function(subsetType="test")
 {
-        cbind(read.table(file.path(subsetType, paste("subject_",subsetType,".txt",sep="")),
+        cbind(read.table(file.path(subsetType, paste0("subject_",subsetType,".txt")),
                          col.names="Subject", stringsAsFactors=FALSE),
-              read.table(file.path(subsetType, paste("y_",subsetType,".txt",sep="")), 
+              read.table(file.path(subsetType, paste0("y_",subsetType,".txt")), 
                          col.names="Activity", stringsAsFactors=FALSE),
-              read.table(file.path(subsetType, paste("x_",subsetType,".txt",sep=""))))
+              read.table(file.path(subsetType, paste0("x_",subsetType,".txt"))))
 }
 
 # Extracts features corresponding to mean and std deviation measurements only
@@ -41,6 +41,7 @@ extractFeatures <- function(df)
         df <- select(df, 1:2, num_range("V",features[["Feature"]]))
         # Label the measurement variables from their description in the file
         names(df)[3:ncol(df)] <- sapply(features[["Description"]], 
+                                        # make.names, unique=TRUE)
                                         # Remove parentheses from feature descriptions
                                         function(x) gsub("()", "", x, fixed=TRUE))
         df
